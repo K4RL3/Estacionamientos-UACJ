@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-1D9R1NZ6W5"> </script> 
+        <script> window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'G-1D9R1NZ6W5'); </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SmartParking UACJ - Acceso</title>
+    <link rel="stylesheet" href="login-style.css">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-1D9R1NZ6W5"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-1D9R1NZ6W5');
+</script> 
+        
+</head>
+<body>
+
+<div class="auth-container">
+    <div class="auth-box">
+        <!-- Pestañas para seleccionar el formulario -->
+        <div class="tabs">
+            <button class="tab-button" id="login-tab" onclick="showForm('login')">Iniciar sesión</button>
+            <button class="tab-button" id="register-tab" onclick="showForm('register')">Registrar</button>
+        </div>
+
+        <!-- Formulario de inicio de sesión -->
+        <div class="form-container" id="login-form">
+            <h2>SmartParking UACJ</h2>
+            <form action="login.php" method="POST">
+                <input type="email" name="email" placeholder="Correo electrónico institucional" required>
+                <input type="password" name="password" placeholder="Contraseña" required>
+                <button type="submit">Entrar</button>
+            </form>
+            <p>¿No tienes cuenta? <a href="javascript:void(0);" onclick="showForm('register')">Crear cuenta</a></p>
+        </div>
+
+        <!-- Formulario de registro -->
+        <div class="form-container" id="register-form" style="display: none;">
+            <h2>SmartParking UACJ</h2>
+            <form action="register.php" method="POST">
+                <input type="text" name="nombre" placeholder="Nombre completo" required>
+                <input type="email" name="email" placeholder="Correo electrónico institucional" required>
+                <input type="password" name="password" placeholder="Contraseña" required>
+                <button type="submit">Registrar</button>
+            </form>
+            <p>¿Ya tienes cuenta? <a href="javascript:void(0);" onclick="showForm('login')">Iniciar sesión</a></p>
+        </div>
+
+    </div>
+</div>
+
+<script>
+    // Función para mostrar el formulario de inicio de sesión o de registro
+    function showForm(formType) {
+        if (formType === 'login') {
+            document.getElementById('login-form').style.display = 'block';
+            document.getElementById('register-form').style.display = 'none';
+            document.getElementById('login-tab').classList.add('active');
+            document.getElementById('register-tab').classList.remove('active');
+        } else if (formType === 'register') {
+            document.getElementById('login-form').style.display = 'none';
+            document.getElementById('register-form').style.display = 'block';
+            document.getElementById('register-tab').classList.add('active');
+            document.getElementById('login-tab').classList.remove('active');
+        }
+    }
+
+    // Mostrar el formulario de inicio de sesión por defecto
+    window.onload = function() {
+        showForm('login');
+    }
+</script>
+
+</body>
+</html>

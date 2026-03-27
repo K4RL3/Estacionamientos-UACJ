@@ -1,0 +1,237 @@
+/* RESET GENERAL */
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #ffffff; /* Fondo Blanco */
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* NAVBAR SUPERIOR */
+.navbar {
+    background-color: #003366; /* Azul UACJ */
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 30px;
+    height: 60px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+.nav-logo {
+    width: 40%;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* Gradiente radial: blanco suave al centro que se desvanece a transparente */
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0) 70%);
+    padding: 5px 0;
+    border-radius: 50%; /* Para que el aura sea circular */
+}
+
+.nav-logo img {
+    height: 50px;
+    /* Sombra de apoyo (opcional): crea un borde blanco muy fino alrededor de las letras */
+    filter: drop-shadow(0px 0px 2px rgba(255, 255, 255, 0.8));
+    transition: transform 0.3s ease;
+}
+
+.nav-logo img:hover {
+    transform: scale(1.05); /* Un pequeño efecto al pasar el mouse */
+}
+
+.nav-welcome { font-size: 1rem; width: 30%; }
+.nav-logo { width: 40%; text-align: center; }
+.nav-logo img { height: 45px; } /* Ajusta según tu imagen */
+.nav-logout { width: 30%; text-align: right; }
+
+.logout-link {
+    color: #FFD700;
+    text-decoration: none;
+    font-weight: bold;
+    border: 1px solid #FFD700;
+    padding: 5px 15px;
+    border-radius: 20px;
+    transition: 0.3s;
+}
+
+.logout-link:hover {
+    background-color: #FFD700;
+    color: #003366;
+}
+
+/* CONTENEDOR DASHBOARD */
+.dashboard-container {
+    display: flex;
+    flex: 1; /* Ocupa el espacio restante */
+}
+
+/* SIDEBAR IZQUIERDA */
+.sidebar {
+    width: 250px;
+    background-color: #f8f9fa;
+    border-right: 2px solid #eee;
+    padding: 30px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.sidebar h3 {
+    color: #003366;
+    border-bottom: 2px solid #FFD700;
+    padding-bottom: 5px;
+}
+
+.status-bar {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.btn-nivel {
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    background-color: #ffffff;
+    color: #003366;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    transition: 0.3s;
+}
+
+.btn-nivel:hover { background-color: #FFD700; }
+.btn-nivel.active { background-color: #003366; color: white; }
+/* --- SECCIÓN DEL MAPA / GRID DE ESTACIONAMIENTO --- */
+
+.map-area {
+    flex: 1;
+    padding: 40px;
+    text-align: center;
+    background-color: #ffffff; /* Fondo blanco limpio alrededor */
+}
+
+.map-wrapper {
+    background-color: #cfcfcf; /* Asfalto oscuro */
+    border-radius: 15px;
+    padding: 30px;
+    margin-top: 20px;
+    min-height: 450px;
+    border: 5px solid #eee;
+    box-shadow: inset 0 0 15px rgba(0,0,0,0.5); /* Sombra interna para profundidad */
+    position: relative;
+}
+
+/* Línea de referencia (Rampas) */
+.escenario-referencia {
+    color: white;
+    font-size: 0.9rem;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    border-bottom: 2px dashed #666;
+    padding-bottom: 10px;
+    margin-bottom: 25px;
+}
+
+/* La cuadrícula mágica */
+.parking-grid {
+    display: grid;
+    /* Crea columnas automáticas de mínimo 60px */
+    grid-template-columns: repeat(auto-fill, minmax(70px, 1fr));
+    gap: 20px; /* Espacio entre cajones */
+    justify-items: center;
+}
+
+/* Estilo Base del Cajón (Interactivo) */
+.cajon {
+    width: 60px;
+    height: 100px;
+    border-radius: 5px;
+    border: 3px solid white; /* Líneas blancas de estacionamiento */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    font-size: 1.1rem;
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s ease; /* Animación suave */
+    position: relative;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+}
+
+/* Efecto Hover (solo en cajones interactivos) */
+.cajon:hover {
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+}
+
+/* Estado: LIBRE (Verde UACJ) */
+.cajon.libre {
+    background-color: #2ecc71; /* Verde esmeralda */
+    border-color: #ffffff;
+}
+
+.cajon.libre:hover {
+    background-color: #27ae60;
+    border-color: #FFD700; /* Borde dorado al pasar el mouse */
+}
+
+/* Estado: OCUPADO (Rojo UACJ) */
+.cajon.ocupado {
+    background-color: #e74c3c; /* Rojo alizarina */
+    border-color: #c0392b;
+    cursor: not-allowed; /* Cambia el cursor para indicar que no se puede tocar */
+}
+
+.cajon.ocupado:hover {
+    transform: none; /* No se mueve al hover */
+    box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+}
+
+/* Pequeño indicador de texto dentro del cajón */
+.cajon .status-text {
+    font-size: 0.7rem;
+    font-weight: normal;
+    text-transform: uppercase;
+    margin-top: 5px;
+}
+
+/* Stats debajo del mapa */
+#stats {
+    margin-top: 20px;
+    font-size: 1.1rem;
+    color: #003366;
+    font-weight: 600;
+    background: #f8f9fa;
+    padding: 10px;
+    border-radius: 8px;
+    display: inline-block;
+}
+
+/* LEYENDA EN SIDEBAR */
+.legend {
+    margin-top: auto; /* La manda al fondo del sidebar */
+    text-align: left;
+}
+
+.item { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
+.box { width: 20px; height: 20px; border-radius: 4px; }
+.libre { background-color: #2ecc71; }
+.ocupado { background-color: #e74c3c; }
+.pasillo-ref { background-color: #95a5a6; }
+
+/* FOOTER */
+.main-footer {
+    background-color: #f1f1f1;
+    text-align: center;
+    padding: 15px;
+    font-size: 0.9rem;
+    color: #666;
+    border-top: 1px solid #eee;
+}
