@@ -39,13 +39,13 @@ $usuario = isset($_SESSION['nombre']) ? $_SESSION['nombre'] : 'Usuario';
                 <button class="carousel-btn prev" id="prevBtn">&#10094;</button>
                 <button class="carousel-btn next" id="nextBtn">&#10095;</button>
                 <div class="carousel-track" id="track">
-                    <div class="slide"><img src="img5.jpg" data-caption="Vista aérea del Campus Norte"></div>
-                    <div class="slide"><img src="img1.jpg" data-caption="Entrada principal al estacionamiento"></div>
-                    <div class="slide"><img src="img2.jpg" data-caption="Reglamento de seguridad vial UACJ"></div>
-                    <div class="slide"><img src="img3.jpg" data-caption="Nuevas estaciones de carga eléctrica"></div>
-                    <div class="slide"><img src="img4.jpg" data-caption="Área de ciclovía y accesos peatonales"></div>
-                    <div class="slide"><img src="img5.jpg" data-caption="Vista aérea del Campus Norte"></div>
-                    <div class="slide"><img src="img1.jpg" data-caption="Entrada principal al estacionamiento"></div>
+                    <div class="slide"><img src="ESTACIONAMIENTO-1024x498.jpg" data-caption=""></div>
+                    <div class="slide"><img src="iada-banner.jpg" data-caption=""></div>
+                    <div class="slide"><img src="image.jpg" data-caption=""></div>
+                    <div class="slide"><img src="parkin-uacj-iada.jpg" data-caption=""></div>
+                    <div class="slide"><img src="uacj-iit.jpg" data-caption=""></div>
+                    <div class="slide"><img src="ESTACIONAMIENTO-1024x498.jpg" data-caption=""></div>
+                    <div class="slide"><img src="iada-banner.jpgjpg" data-caption=""></div>
                 </div>
             </div>
         </div>
