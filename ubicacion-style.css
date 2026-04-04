@@ -1,0 +1,225 @@
+/* --- VARIABLES UACJ (Aseguramos que existan) --- */
+:root {
+    --uacj-azul: #003366;
+    --uacj-dorado: #FFD700;
+    --gris-fondo: #f4f7f6;
+}
+
+/* --- RESET Y BASE --- */
+body {
+    margin: 0;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    overflow-x: hidden; /* Evita scroll horizontal al mover el menú */
+}
+
+/* --- NAVBAR (Basada en tu diseño del dashboard) --- */
+.navbar {
+    background-color: var(--uacj-azul);
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 30px;
+    height: 60px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+/* --- ESTILOS DEL MENÚ HAMBURGUESA (NUEVO) --- */
+.menu-toggle {
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    margin-right: 15px;
+}
+
+.menu-toggle span {
+    width: 25px;
+    height: 3px;
+    background-color: var(--uacj-dorado);
+    border-radius: 2px;
+}
+
+.nav-sidebar {
+    position: fixed;
+    top: 0;
+    left: -280px; /* Escondido a la izquierda */
+    width: 280px;
+    height: 100%;
+    background-color: var(--uacj-azul);
+    z-index: 2000;
+    transition: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    display: flex;
+    flex-direction: column;
+    box-shadow: 5px 0 15px rgba(0,0,0,0.3);
+}
+
+.nav-sidebar.open {
+    left: 0; /* Se desliza hacia adentro */
+}
+
+.nav-sidebar a {
+    color: white;
+    text-decoration: none;
+    padding: 15px 25px;
+    font-size: 1.1rem;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    transition: 0.3s;
+}
+
+.nav-sidebar a:hover {
+    background-color: rgba(255, 215, 0, 0.1);
+    color: var(--uacj-dorado);
+}
+
+.overlay-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    display: none;
+    z-index: 1500;
+}
+
+.overlay-nav.show {
+    display: block;
+}
+
+/* --- TUS ESTILOS DE GEOLOCALIZACIÓN (OPTIMIZADOS) --- */
+.geo-layout {
+    display: flex;
+    height: calc(100vh - 60px);
+}
+
+.geo-sidebar {
+    width: 300px;
+    background: white;
+    padding: 25px;
+    box-shadow: 2px 0 10px rgba(0,0,0,0.1);
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+#map-container {
+    flex: 1;
+    position: relative;
+    background-color: #eee; /* Fondo mientras carga el mapa */
+}
+
+#map {
+    width: 100%;
+    height: 100%;
+}
+
+.geo-select {
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 1rem;
+    color: var(--uacj-azul);
+    background-color: #fff;
+    cursor: pointer;
+}
+
+.geo-info-card {
+    background: var(--gris-fondo);
+    padding: 15px;
+    border-radius: 10px;
+    font-size: 0.9rem;
+    border-left: 4px solid var(--uacj-azul);
+}
+
+.btn-primary {
+    background: var(--uacj-azul);
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.3s;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.btn-primary:hover {
+    background: #002244;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+/* Responsive para celulares */
+@media (max-width: 768px) {
+    .geo-layout {
+        flex-direction: column;
+    }
+    .geo-sidebar {
+        width: 100%;
+        box-sizing: border-box;
+        height: auto;
+    }
+    #map-container {
+        height: 400px;
+    }
+}
+/* ESTILOS EXTRA PARA EL MENÚ DESPLEGABLE (Agrega esto al final de tu .css o déjalo aquí) */
+        
+        /* El botón hamburguesa dentro de tu nav-welcome */
+        .menu-toggle {
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+            margin-right: 15px;
+            vertical-align: middle;
+        }
+        .menu-toggle span {
+            width: 25px;
+            height: 3px;
+            background-color: #FFD700;
+            border-radius: 2px;
+            transition: 0.3s;
+        }
+
+        /* Sidebar Navegación (El que se despliega) */
+        .nav-sidebar {
+            position: fixed;
+            top: 0;
+            left: -280px; /* Escondido */
+            width: 280px;
+            height: 100%;
+            background-color: #003366;
+            z-index: 2000;
+            transition: 0.4s ease;
+            box-shadow: 5px 0 15px rgba(0,0,0,0.3);
+            display: flex;
+            flex-direction: column;
+            padding-top: 20px;
+        }
+        .nav-sidebar.open { left: 0; }
+
+        .nav-sidebar a {
+            color: white;
+            text-decoration: none;
+            padding: 15px 25px;
+            font-size: 1.1rem;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            transition: 0.3s;
+        }
+        .nav-sidebar a:hover {
+            background-color: rgba(255, 215, 0, 0.2);
+            color: #FFD700;
+        }
+
+        /* Capa oscura */
+        .overlay-nav {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.5);
+            display: none;
+            z-index: 1500;
+        }
+        .overlay-nav.show { display: block; }

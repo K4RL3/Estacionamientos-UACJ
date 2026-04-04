@@ -12,13 +12,13 @@ $usuario_id = isset($_SESSION['usuario_id']) ? $_SESSION['usuario_id'] : '0';
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SmartParking UACJ - Panel</title>
+    <title>SmartParking UACJ - Geolocalización</title>
+    
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
     <link rel="stylesheet" href="dashboard-style.css"> 
     
     <style>
-        /* ESTILOS EXTRA PARA EL MENÚ DESPLEGABLE (Agrega esto al final de tu .css o déjalo aquí) */
-        
-        /* El botón hamburguesa dentro de tu nav-welcome */
+        /* ESTILOS DEL MENÚ DESPLEGABLE */
         .menu-toggle {
             cursor: pointer;
             display: flex;
@@ -28,26 +28,21 @@ $usuario_id = isset($_SESSION['usuario_id']) ? $_SESSION['usuario_id'] : '0';
             vertical-align: middle;
         }
         .menu-toggle span {
-            width: 25px;
-            height: 3px;
+            width: 25px; height: 3px;
             background-color: #FFD700;
             border-radius: 2px;
             transition: 0.3s;
         }
 
-        /* Sidebar Navegación (El que se despliega) */
         .nav-sidebar {
             position: fixed;
-            top: 0;
-            left: -280px; /* Escondido */
-            width: 280px;
-            height: 100%;
+            top: 0; left: -280px;
+            width: 280px; height: 100%;
             background-color: #003366;
             z-index: 2000;
             transition: 0.4s ease;
             box-shadow: 5px 0 15px rgba(0,0,0,0.3);
-            display: flex;
-            flex-direction: column;
+            display: flex; flex-direction: column;
             padding-top: 20px;
         }
         .nav-sidebar.open { left: 0; }
@@ -65,7 +60,6 @@ $usuario_id = isset($_SESSION['usuario_id']) ? $_SESSION['usuario_id'] : '0';
             color: #FFD700;
         }
 
-        /* Capa oscura */
         .overlay-nav {
             position: fixed;
             top: 0; left: 0; width: 100%; height: 100%;
@@ -74,6 +68,18 @@ $usuario_id = isset($_SESSION['usuario_id']) ? $_SESSION['usuario_id'] : '0';
             z-index: 1500;
         }
         .overlay-nav.show { display: block; }
+
+        /* AJUSTES PARA EL LAYOUT DE GEOLOCALIZACIÓN */
+        .geo-layout {
+            display: flex;
+            width: 100%;
+            height: calc(100vh - 120px); /* Ajuste para navbar y footer */
+        }
+        #map {
+            width: 100%;
+            height: 100%;
+            min-height: 400px;
+        }
     </style>
 </head>
 <body>
@@ -86,7 +92,7 @@ $usuario_id = isset($_SESSION['usuario_id']) ? $_SESSION['usuario_id'] : '0';
         <a href="dashboard.php">Mapa de Cajones</a>
         <a href="confirmacion.php">Mi Reserva Activa</a>
         <a href="ubicacion.php">Geolocalización</a>
-        <a href="logout.php" style="color: #FFD700; margin-top: auto; border-top: 1px solid white;">🚪 Cerrar Sesión</a>
+        <a href="logout.php" style="color: #FFD700; margin-top: auto; border-top: 1px solid white;">Cerrar Sesión</a>
     </aside>
 
     <nav class="navbar">
@@ -104,38 +110,43 @@ $usuario_id = isset($_SESSION['usuario_id']) ? $_SESSION['usuario_id'] : '0';
         </div>
     </nav>
 
-    <main class="dashboard-container">
+<div class="geo-layout">
+    <aside class="geo-sidebar" style="width: 320px; padding: 25px; background: white; box-shadow: 2px 0 10px rgba(0,0,0,0.1); z-index: 10;">
+        <h2 style="color: #003366; border-bottom: 2px solid #FFD700; padding-bottom: 10px;">Campus UACJ</h2>
+        <p style="font-size: 0.9rem; color: #666;">Selecciona un campus para localizar su área de estacionamiento inteligente.</p>
         
-        <aside class="sidebar">
-            <h3>Seleccionar Piso</h3>
-            <div class="status-bar">
-                <button onclick="cargarCajones(1)" class="btn-nivel">Nivel 1</button>
-                <button onclick="cargarCajones(2)" class="btn-nivel">Nivel 2</button>
-                <button onclick="cargarCajones(3)" class="btn-nivel">Nivel 3</button>
-            </div>
-            
-            <div class="legend">
-                <h4>Leyenda</h4>
-                <div class="item"><span class="box libre"></span> Disponible</div>
-                <div class="item"><span class="box ocupado"></span> Ocupado</div>
-                <div class="item"><span class="box pasillo-ref"></span> Pasillo</div>
-            </div>
-        </aside>
+        <select id="campus-selector" class="geo-select" style="width: 100%; padding: 12px; border-radius: 8px; border: 2px solid #003366; font-weight: bold; margin-bottom: 25px;">
+            <option value="iit_iada">IIT / IADA</option>
+            <option value="icsa">ICSA</option>
+            <option value="icb">ICB</option>
+            <option value="cu">CU</option>
+        </select>
 
-        <section class="map-area">
-            <h1>Mapa de Lugares: IIT-IADA</h1>
-            <div class="map-wrapper">
-                <div id="mapa-interactivo" class="parking-grid"></div>
-            </div>
-            <p id="stats">Cargando datos del servidor...</p>
-        </section>
+        <div id="info-estacionamiento" style="background: #f9f9f9; padding: 20px; border-radius: 12px; border: 1px solid #ddd;">
+    <h3 id="nombre-campus" style="margin-top: 0; color: #003366;">IIT / IADA</h3>
+    <p id="detalles-campus" style="font-size: 0.95rem; line-height: 1.5;">Cargando detalles del estacionamiento...</p>
+    
+    <div style="margin-top: 15px; padding-top: 15px; border-top: 1px dashed #ccc;">
+        <span style="display: block; font-size: 0.8rem; color: #888;">Capacidad Estimada:</span>
+        <strong id="capacidad-campus">-- cajones</strong>
+    </div>
+    
+    </div>
+    </aside>
+
+    <main id="map-container" style="flex: 1; position: relative;">
+        <div id="map" style="width: 100%; height: 100%;"></div>
     </main>
+</div>
 
     <footer class="main-footer">
         Este es un trabajo para la clase de Programación Integral - UACJ 2024
     </footer>
 
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    
     <script>
+        // Lógica Menú Hamburguesa
         const btnOpen = document.getElementById('open-menu');
         const sideNav = document.getElementById('nav-sidebar');
         const overlay = document.getElementById('nav-overlay');
@@ -147,21 +158,12 @@ $usuario_id = isset($_SESSION['usuario_id']) ? $_SESSION['usuario_id'] : '0';
 
         btnOpen.addEventListener('click', toggleNav);
         overlay.addEventListener('click', toggleNav);
-    </script>
 
-    <script>
+        // ID de Usuario para otros scripts
         const USUARIO_ACTUAL_ID = <?php echo $usuario_id; ?>;
-        console.log("Sesión activa para ID:", USUARIO_ACTUAL_ID);
     </script>
 
     <script src="scrip.js"></script>
-
-    <script>
-        window.onload = function() {
-            if (typeof cargarCajones === 'function') {
-                cargarCajones(1); 
-            }
-        };
-    </script>
+    <script src="ubicacion-script.js"></script>
 </body>
 </html>
