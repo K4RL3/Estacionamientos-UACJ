@@ -4,7 +4,7 @@ if (!isset($_SESSION['usuario_id'])) {
     header("Location: login.php");
     exit();
 }
-// Mantenemos consistencia con las variables de tus otros archivos
+
 $cajon = isset($_GET['cajon']) ? $_GET['cajon'] : '---';
 $nombre_usuario = isset($_SESSION['usuario']) ? $_SESSION['usuario'] : 'Usuario';
 ?>
@@ -16,7 +16,7 @@ $nombre_usuario = isset($_SESSION['usuario']) ? $_SESSION['usuario'] : 'Usuario'
     <title>Confirmación | UACJ</title>
     <link rel="stylesheet" href="confirmacion-style.css">
     <style>
-        /* ESTILOS PARA EL MENÚ (Consistentes con Dashboard/Ubicación) */
+        
         .menu-toggle {
             cursor: pointer;
             display: flex;
@@ -67,7 +67,7 @@ $nombre_usuario = isset($_SESSION['usuario']) ? $_SESSION['usuario'] : 'Usuario'
         }
         .overlay-nav.show { display: block; }
         
-        /* Ajuste para que el navbar sea igual a los anteriores */
+   
         .navbar {
             background-color: #003366;
             color: white;

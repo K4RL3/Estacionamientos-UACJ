@@ -1,4 +1,4 @@
-// 1. Datos que se mostrarán en la tarjeta
+
 const CAMPUS_DATA = {
     iit_iada: { 
         lat: 31.742285605733223, lng:-106.43430739535914, 
@@ -38,28 +38,26 @@ function initMap() {
 
     marker = L.marker([inicio.lat, inicio.lng]).addTo(map);
     
-    // Mostramos la info de IIT por defecto al cargar
+    
     actualizarInterfaz("iit_iada");
 }
 
-// 3. EVENTO DE CAMBIO: Esta es la clave
+
 document.getElementById('campus-selector').addEventListener('change', (e) => {
     const seleccion = e.target.value;
     const data = CAMPUS_DATA[seleccion];
 
-    // Mueve el marcador y el mapa
+
     map.flyTo([data.lat, data.lng], 17);
     marker.setLatLng([data.lat, data.lng]);
     
-    // Actualiza la tarjeta informativa
+
     actualizarInterfaz(seleccion);
 });
 
-// 4. FUNCIÓN QUE LLENA LA TARJETA
 function actualizarInterfaz(clave) {
     const info = CAMPUS_DATA[clave];
     
-    // Buscamos los elementos por su ID y les inyectamos el texto
     document.getElementById('nombre-campus').innerText = info.nombre;
     document.getElementById('detalles-campus').innerText = info.detalles;
     document.getElementById('capacidad-campus').innerText = info.cajones + " cajones";

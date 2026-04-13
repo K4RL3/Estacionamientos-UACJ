@@ -30,26 +30,24 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    /* Gradiente radial: blanco suave al centro que se desvanece a transparente */
     background: radial-gradient(circle, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0) 70%);
     padding: 5px 0;
-    border-radius: 50%; /* Para que el aura sea circular */
+    border-radius: 50%;
 }
 
 .nav-logo img {
     height: 50px;
-    /* Sombra de apoyo (opcional): crea un borde blanco muy fino alrededor de las letras */
     filter: drop-shadow(0px 0px 2px rgba(255, 255, 255, 0.8));
     transition: transform 0.3s ease;
 }
 
 .nav-logo img:hover {
-    transform: scale(1.05); /* Un pequeño efecto al pasar el mouse */
+    transform: scale(1.05); 
 }
 
 .nav-welcome { font-size: 1rem; width: 30%; }
 .nav-logo { width: 40%; text-align: center; }
-.nav-logo img { height: 45px; } /* Ajusta según tu imagen */
+.nav-logo img { height: 45px; } 
 .nav-logout { width: 30%; text-align: right; }
 
 .logout-link {
@@ -84,13 +82,12 @@ body {
 
 .visual-panel { flex: 1; position: relative; background: #000; }
 
-/* CARRUSEL REFINADO */
 .carousel-container { width: 100%; height: 100%; position: relative; overflow: hidden; }
 .carousel-track { display: flex; height: 100%; transition: transform 0.5s ease-in-out; }
 .slide { min-width: 100%; height: 100%; cursor: zoom-in; }
 .slide img { width: 100%; height: 100%; object-fit: cover; }
 
-/* FLECHAS CORREGIDAS: Ahora dentro del panel visual, visibles sobre la imagen */
+
 .carousel-btn {
     position: absolute; top: 50%; transform: translateY(-50%);
     background: rgba(0,0,0,0.5); color: white; border: none;
@@ -101,7 +98,6 @@ body {
 .prev { left: 0; border-radius: 0 5px 5px 0; }
 .next { right: 0; border-radius: 5px 0 0 5px; }
 
-/* LIGHTBOX (PANTALLA GRANDE) */
 .lightbox {
     display: none; position: fixed; z-index: 100;
     left: 0; top: 0; width: 100%; height: 100%;
@@ -115,6 +111,6 @@ body {
     color: white; font-size: 40px; cursor: pointer;
 }
 
-/* Estilos de texto (reutilizados) */
+
 .cajon-display { font-size: 6rem; color: var(--uacj-azul); font-weight: 900; margin: 10px 0; }
 .warning { color: var(--uacj-rojo); background: #fff5f5; padding: 15px; border-left: 5px solid; }

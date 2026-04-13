@@ -1,18 +1,18 @@
-/* --- VARIABLES UACJ (Aseguramos que existan) --- */
+
 :root {
     --uacj-azul: #003366;
     --uacj-dorado: #FFD700;
     --gris-fondo: #f4f7f6;
 }
 
-/* --- RESET Y BASE --- */
+
 body {
     margin: 0;
     font-family: 'Segoe UI', Arial, sans-serif;
-    overflow-x: hidden; /* Evita scroll horizontal al mover el menú */
+    overflow-x: hidden; 
 }
 
-/* --- NAVBAR (Basada en tu diseño del dashboard) --- */
+
 .navbar {
     background-color: var(--uacj-azul);
     color: white;
@@ -24,7 +24,7 @@ body {
     box-shadow: 0 2px 10px rgba(0,0,0,0.1);
 }
 
-/* --- ESTILOS DEL MENÚ HAMBURGUESA (NUEVO) --- */
+
 .menu-toggle {
     cursor: pointer;
     display: flex;
@@ -43,7 +43,7 @@ body {
 .nav-sidebar {
     position: fixed;
     top: 0;
-    left: -280px; /* Escondido a la izquierda */
+    left: -280px; 
     width: 280px;
     height: 100%;
     background-color: var(--uacj-azul);
@@ -55,7 +55,7 @@ body {
 }
 
 .nav-sidebar.open {
-    left: 0; /* Se desliza hacia adentro */
+    left: 0; 
 }
 
 .nav-sidebar a {
@@ -87,7 +87,7 @@ body {
     display: block;
 }
 
-/* --- TUS ESTILOS DE GEOLOCALIZACIÓN (OPTIMIZADOS) --- */
+
 .geo-layout {
     display: flex;
     height: calc(100vh - 60px);
@@ -107,7 +107,7 @@ body {
 #map-container {
     flex: 1;
     position: relative;
-    background-color: #eee; /* Fondo mientras carga el mapa */
+    background-color: #eee; 
 }
 
 #map {
@@ -151,7 +151,7 @@ body {
     box-shadow: 0 4px 8px rgba(0,0,0,0.2);
 }
 
-/* Responsive para celulares */
+
 @media (max-width: 768px) {
     .geo-layout {
         flex-direction: column;
@@ -165,9 +165,7 @@ body {
         height: 400px;
     }
 }
-/* ESTILOS EXTRA PARA EL MENÚ DESPLEGABLE (Agrega esto al final de tu .css o déjalo aquí) */
-        
-        /* El botón hamburguesa dentro de tu nav-welcome */
+
         .menu-toggle {
             cursor: pointer;
             display: flex;
@@ -184,11 +182,11 @@ body {
             transition: 0.3s;
         }
 
-        /* Sidebar Navegación (El que se despliega) */
+
         .nav-sidebar {
             position: fixed;
             top: 0;
-            left: -280px; /* Escondido */
+            left: -280px; 
             width: 280px;
             height: 100%;
             background-color: #003366;
@@ -214,7 +212,7 @@ body {
             color: #FFD700;
         }
 
-        /* Capa oscura */
+
         .overlay-nav {
             position: fixed;
             top: 0; left: 0; width: 100%; height: 100%;

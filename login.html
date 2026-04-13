@@ -22,13 +22,12 @@
 
 <div class="auth-container">
     <div class="auth-box">
-        <!-- Pestañas para seleccionar el formulario -->
         <div class="tabs">
             <button class="tab-button" id="login-tab" onclick="showForm('login')">Iniciar sesión</button>
             <button class="tab-button" id="register-tab" onclick="showForm('register')">Registrar</button>
         </div>
 
-        <!-- Formulario de inicio de sesión -->
+
         <div class="form-container" id="login-form">
             <h2>SmartParking UACJ</h2>
             <form action="login.php" method="POST">
@@ -39,7 +38,7 @@
             <p>¿No tienes cuenta? <a href="javascript:void(0);" onclick="showForm('register')">Crear cuenta</a></p>
         </div>
 
-        <!-- Formulario de registro -->
+
         <div class="form-container" id="register-form" style="display: none;">
             <h2>SmartParking UACJ</h2>
             <form action="register.php" method="POST">
@@ -55,7 +54,6 @@
 </div>
 
 <script>
-    // Función para mostrar el formulario de inicio de sesión o de registro
     function showForm(formType) {
         if (formType === 'login') {
             document.getElementById('login-form').style.display = 'block';
@@ -69,8 +67,6 @@
             document.getElementById('login-tab').classList.remove('active');
         }
     }
-
-    // Mostrar el formulario de inicio de sesión por defecto
     window.onload = function() {
         showForm('login');
     }

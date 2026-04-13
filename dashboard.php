@@ -16,9 +16,6 @@ $usuario_id = isset($_SESSION['usuario_id']) ? $_SESSION['usuario_id'] : '0';
     <link rel="stylesheet" href="dashboard-style.css"> 
     
     <style>
-        /* ESTILOS EXTRA PARA EL MENÚ DESPLEGABLE (Agrega esto al final de tu .css o déjalo aquí) */
-        
-        /* El botón hamburguesa dentro de tu nav-welcome */
         .menu-toggle {
             cursor: pointer;
             display: flex;
@@ -34,8 +31,6 @@ $usuario_id = isset($_SESSION['usuario_id']) ? $_SESSION['usuario_id'] : '0';
             border-radius: 2px;
             transition: 0.3s;
         }
-
-        /* Sidebar Navegación (El que se despliega) */
         .nav-sidebar {
             position: fixed;
             top: 0;
@@ -64,8 +59,6 @@ $usuario_id = isset($_SESSION['usuario_id']) ? $_SESSION['usuario_id'] : '0';
             background-color: rgba(255, 215, 0, 0.2);
             color: #FFD700;
         }
-
-        /* Capa oscura */
         .overlay-nav {
             position: fixed;
             top: 0; left: 0; width: 100%; height: 100%;
@@ -86,7 +79,7 @@ $usuario_id = isset($_SESSION['usuario_id']) ? $_SESSION['usuario_id'] : '0';
         <a href="dashboard.php">Mapa de Cajones</a>
         <a href="confirmacion.php">Mi Reserva Activa</a>
         <a href="ubicacion.php">Geolocalización</a>
-        <a href="logout.php" style="color: #FFD700; margin-top: auto; border-top: 1px solid white;">🚪 Cerrar Sesión</a>
+        <a href="logout.php" style="color: #FFD700; margin-top: auto; border-top: 1px solid white;">Cerrar Sesión</a>
     </aside>
 
     <nav class="navbar">
@@ -154,7 +147,7 @@ $usuario_id = isset($_SESSION['usuario_id']) ? $_SESSION['usuario_id'] : '0';
         console.log("Sesión activa para ID:", USUARIO_ACTUAL_ID);
     </script>
 
-    <script src="scrip.js"></script>
+    <script src="script.js"></script>
 
     <script>
         window.onload = function() {

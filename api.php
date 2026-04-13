@@ -27,7 +27,7 @@ if ($action === 'login') {
     $user = $result->fetch_assoc();
     
     if ($user && password_verify($password, $user['password'])) {
-        // Login exitoso: devolver token o datos del usuario
+       
         echo json_encode(['success' => true, 'user' => ['id' => $user['id'], 'nombre' => $user['nombre']]]);
     } else {
         echo json_encode(['success' => false, 'message' => 'Credenciales inválidas']);
@@ -35,11 +35,10 @@ if ($action === 'login') {
     $conn->close();
     
 } elseif ($action === 'reservar') {
-    // Recibir datos: usuario_id, cajon_id (o nombre_cajon), nivel
-    $usuario_id = $_POST['usuario_id'];
-    $cajon_id = $_POST['cajon_id']; // ID interno de Supabase (o nombre_cajon)
     
-    // 1. Verificar si el usuario ya tiene un cajón (consulta en Supabase)
+    $usuario_id = $_POST['usuario_id'];
+    $cajon_id = $_POST['cajon_id']; 
+    
     $ch = curl_init("$supabase_url/usuarios_estacionamiento?matricula=eq.$usuario_id");
     curl_setopt($ch, CURLOPT_HTTPHEADER, [
         "apikey: $supabase_key",
@@ -54,13 +53,11 @@ if ($action === 'login') {
         exit;
     }
     
-    // 2. Actualizar estado en Supabase: marcar cajón como ocupado
     curl_setopt($ch, CURLOPT_URL, "$supabase_url/estacionamiento?id=eq.$cajon_id");
     curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'PATCH');
     curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode(['esta_ocupado' => true]));
     curl_exec($ch);
     
-    // 3. Insertar en usuarios_estacionamiento (si no existe) o actualizar
     curl_setopt($ch, CURLOPT_URL, "$supabase_url/usuarios_estacionamiento");
     curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'POST');
     curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode([

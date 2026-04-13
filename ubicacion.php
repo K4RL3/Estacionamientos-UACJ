@@ -18,7 +18,6 @@ $usuario_id = isset($_SESSION['usuario_id']) ? $_SESSION['usuario_id'] : '0';
     <link rel="stylesheet" href="dashboard-style.css"> 
     
     <style>
-        /* ESTILOS DEL MENÚ DESPLEGABLE */
         .menu-toggle {
             cursor: pointer;
             display: flex;
@@ -69,11 +68,11 @@ $usuario_id = isset($_SESSION['usuario_id']) ? $_SESSION['usuario_id'] : '0';
         }
         .overlay-nav.show { display: block; }
 
-        /* AJUSTES PARA EL LAYOUT DE GEOLOCALIZACIÓN */
+
         .geo-layout {
             display: flex;
             width: 100%;
-            height: calc(100vh - 120px); /* Ajuste para navbar y footer */
+            height: calc(100vh - 120px); 
         }
         #map {
             width: 100%;
@@ -146,7 +145,7 @@ $usuario_id = isset($_SESSION['usuario_id']) ? $_SESSION['usuario_id'] : '0';
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
     
     <script>
-        // Lógica Menú Hamburguesa
+
         const btnOpen = document.getElementById('open-menu');
         const sideNav = document.getElementById('nav-sidebar');
         const overlay = document.getElementById('nav-overlay');
@@ -159,7 +158,7 @@ $usuario_id = isset($_SESSION['usuario_id']) ? $_SESSION['usuario_id'] : '0';
         btnOpen.addEventListener('click', toggleNav);
         overlay.addEventListener('click', toggleNav);
 
-        // ID de Usuario para otros scripts
+
         const USUARIO_ACTUAL_ID = <?php echo $usuario_id; ?>;
     </script>
 

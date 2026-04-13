@@ -7,7 +7,6 @@ const closeBtn = document.querySelector('.close-lightbox');
 
 let index = 1;
 
-// --- LÓGICA CARRUSEL ---
 function updateCarousel() {
     track.style.transition = "transform 0.5s ease-in-out";
     track.style.transform = `translateX(${-index * 100}%)`;
@@ -36,7 +35,6 @@ track.addEventListener('transitionend', () => {
     }
 });
 
-// --- LÓGICA LIGHTBOX (Pantalla Grande) ---
 slides.forEach(slide => {
     slide.addEventListener('click', () => {
         const img = slide.querySelector('img');
@@ -49,7 +47,6 @@ slides.forEach(slide => {
 closeBtn.onclick = () => lightbox.style.display = "none";
 window.onclick = (e) => { if (e.target == lightbox) lightbox.style.display = "none"; };
 
-// Auto play
 setInterval(() => {
     index++;
     updateCarousel();

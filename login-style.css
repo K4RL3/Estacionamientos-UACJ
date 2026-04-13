@@ -1,13 +1,12 @@
-/* Estilo base con colores UACJ - AZUL Y AMARILLO */
+
 body {
     font-family: 'Segoe UI', Arial, sans-serif;
-    background: #003366; /* Azul UACJ sólido */
+    background: #003366; 
     margin: 0;
     padding: 0;
     min-height: 100vh;
 }
 
-/* Contenedor de la caja de autenticación */
 .auth-container {
     display: flex;
     justify-content: center;
@@ -35,10 +34,9 @@ body {
     border-radius: 12px;
     width: 100%;
     max-width: 380px;
-    border-top: 8px solid #FFD700; /* Barra amarilla arriba */
+    border-top: 8px solid #FFD700; 
 }
 
-/* Pestañas para el cambio entre formularios */
 .tabs {
     display: flex;
     gap: 8px;
@@ -58,21 +56,20 @@ body {
     font-size: 15px;
     font-weight: 600;
     border-radius: 30px;
-    color: #003366; /* Azul UACJ */
+    color: #003366; 
     transition: all 0.3s ease;
 }
 
 .tab-button.active {
-    background-color: #003366; /* Azul UACJ */
+    background-color: #003366; 
     color: white;
 }
 
 .tab-button:hover:not(.active) {
-    background-color: #FFD700; /* Amarillo UACJ */
-    color: #003366; /* Azul UACJ */
+    background-color: #FFD700; 
+    color: #003366; 
 }
 
-/* Formularios */
 .form-container {
     display: none;
     animation: fadeIn 0.5s ease;
@@ -92,10 +89,10 @@ body {
 h2 {
     text-align: center;
     margin-bottom: 25px;
-    color: #003366; /* Azul UACJ */
+    color: #003366; 
     font-size: 24px;
     font-weight: 600;
-    border-bottom: 3px solid #FFD700; /* Línea amarilla */
+    border-bottom: 3px solid #FFD700; 
     padding-bottom: 12px;
 }
 
@@ -112,7 +109,7 @@ input {
 
 input:focus {
     outline: none;
-    border-color: #003366; /* Azul UACJ */
+    border-color: #003366; 
     box-shadow: 0 0 0 3px rgba(0, 51, 102, 0.2);
 }
 
@@ -123,7 +120,7 @@ input::placeholder {
 button {
     width: 100%;
     padding: 14px;
-    background-color: #003366; /* Azul UACJ */
+    background-color: #003366; 
     color: white;
     border: none;
     border-radius: 8px;
@@ -137,8 +134,8 @@ button {
 }
 
 button:hover {
-    background-color: #FFD700; /* Amarillo UACJ */
-    color: #003366; /* Texto azul */
+    background-color: #FFD700;
+    color: #003366; 
     box-shadow: 0 5px 15px rgba(255, 215, 0, 0.4);
 }
 
@@ -148,12 +145,12 @@ button:active {
 
 a {
     text-decoration: none;
-    color: #003366; /* Azul UACJ */
+    color: #003366; 
     font-weight: 600;
 }
 
 a:hover {
-    color: #FFD700; /* Amarillo UACJ */
+    color: #FFD700; 
     text-decoration: underline;
 }
 
@@ -164,15 +161,15 @@ p {
     margin-top: 15px;
 }
 
-/* Elemento UACJ */
+
 .auth-box::before {
     content: "UACJ";
     position: absolute;
     top: -18px;
     left: 50%;
     transform: translateX(-50%);
-    background-color: #FFD700; /* Amarillo UACJ */
-    color: #003366; /* Azul UACJ */
+    background-color: #FFD700; 
+    color: #003366; 
     padding: 6px 25px;
     border-radius: 30px;
     font-weight: bold;
@@ -187,7 +184,6 @@ p {
     margin-top: 25px;
 }
 
-/* Responsive */
 @media (max-width: 480px) {
     .auth-box {
         padding: 25px 20px;
