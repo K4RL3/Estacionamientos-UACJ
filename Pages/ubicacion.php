@@ -15,7 +15,7 @@ $usuario_id = isset($_SESSION['usuario_id']) ? $_SESSION['usuario_id'] : '0';
     <title>SmartParking UACJ - Geolocalización</title>
     
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
-    <link rel="stylesheet" href="dashboard-style.css"> 
+    <link rel="stylesheet" href="Styles/dashboard-style.css"> 
     
     <style>
         .menu-toggle {
@@ -86,12 +86,12 @@ $usuario_id = isset($_SESSION['usuario_id']) ? $_SESSION['usuario_id'] : '0';
     <div class="overlay-nav" id="nav-overlay"></div>
     <aside class="nav-sidebar" id="nav-sidebar">
         <div style="text-align: center; padding: 20px;">
-            <img src="uacj-logo.png" alt="UACJ" style="height: 50px;">
+            <img src="Imagenes/uacj-logo.png" alt="UACJ" style="height: 50px;">
         </div>
-        <a href="dashboard.php">Mapa de Cajones</a>
-        <a href="confirmacion.php">Mi Reserva Activa</a>
-        <a href="ubicacion.php">Geolocalización</a>
-        <a href="logout.php" style="color: #FFD700; margin-top: auto; border-top: 1px solid white;">Cerrar Sesión</a>
+        <a href="Pages/dashboard.php">Mapa de Cajones</a>
+        <a href="Pages/confirmacion.php">Mi Reserva Activa</a>
+        <a href="Pages/ubicacion.php">Geolocalización</a>
+        <a href="PHP/logout.php" style="color: #FFD700; margin-top: auto; border-top: 1px solid white;">Cerrar Sesión</a>
     </aside>
 
     <nav class="navbar">
@@ -102,10 +102,10 @@ $usuario_id = isset($_SESSION['usuario_id']) ? $_SESSION['usuario_id'] : '0';
             ¡Bienvenido, <strong><?php echo htmlspecialchars($nombre_usuario); ?></strong>!
         </div>
         <div class="nav-logo">
-            <img src="uacj-logo.png" alt="Logo UACJ">
+            <img src="Imagenes/uacj-logo.png" alt="Logo UACJ">
         </div>
         <div class="nav-logout">
-            <a href="logout.php" class="logout-link">Cerrar sesión</a>
+            <a href="PHP/logout.php" class="logout-link">Cerrar sesión</a>
         </div>
     </nav>
 
@@ -162,7 +162,7 @@ $usuario_id = isset($_SESSION['usuario_id']) ? $_SESSION['usuario_id'] : '0';
         const USUARIO_ACTUAL_ID = <?php echo $usuario_id; ?>;
     </script>
 
-    <script src="scrip.js"></script>
-    <script src="ubicacion-script.js"></script>
+    <script src="Scripts/scrip.js"></script>
+    <script src="Scripts/ubicacion-script.js"></script>
 </body>
 </html>
