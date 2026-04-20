@@ -88,9 +88,9 @@ $nombre_usuario = isset($_SESSION['usuario']) ? $_SESSION['usuario'] : 'Usuario'
         <div style="text-align: center; padding: 20px;">
             <img src="Imagenes/uacj-logo.png" alt="UACJ" style="height: 50px;">
         </div>
-        <a href="Pages/dashboard.php">Mapa de Cajones</a>
-        <a href="Pages/confirmacion.php">Mi Reserva Activa</a>
-        <a href="Pages/ubicacion.php">Geolocalización</a>
+        <a href="dashboard.php">Mapa de Cajones</a>
+        <a href="confirmacion.php">Mi Reserva Activa</a>
+        <a href="ubicacion.php">Geolocalización</a>
         <a href="PHP/logout.php" style="color: #FFD700; margin-top: auto; border-top: 1px solid white; padding: 20px;">🚪 Cerrar Sesión</a>
     </aside>
 
@@ -115,7 +115,7 @@ $nombre_usuario = isset($_SESSION['usuario']) ? $_SESSION['usuario'] : 'Usuario'
                 ⚠️ Tienes 24 horas para ocupar el lugar o se liberará automáticamente.
             </div>
             <br>
-            <a href="Pages/dashboard.php" style="color: #003366; font-weight: bold; text-decoration: none;">← Volver al Mapa</a>
+            <a href="dashboard.php" style="color: #003366; font-weight: bold; text-decoration: none;">← Volver al Mapa</a>
         </div>
 
         <div class="visual-panel">
