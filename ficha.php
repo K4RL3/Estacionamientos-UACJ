@@ -1,7 +1,7 @@
 <?php
 session_start();
 if (!isset($_SESSION['usuario'])) {
-    header("Location: login.html");
+    header("Location: /login.html");
     exit();
 }
 $nombre_usuario = $_SESSION['usuario'];
@@ -21,25 +21,23 @@ $nombre_usuario = $_SESSION['usuario'];
         <div class="sidebar-logo-container">
             <img src="Imagenes/uacj-logo.png" alt="UACJ">
         </div>
-        <a href="dashboard.php">Mapa de Cajones</a>
+        <a href="/dashboard.php">Mapa de Cajones</a>
         <a href="confirmacion.php">Mi Reserva Activa</a>
         <a href="ubicacion.php">Geolocalización</a>
         <a href="ficha.php">lol</a>
         <a href="PHP/logout.php" style="color: #FFD700; margin-top: auto; border-top: 1px solid rgba(255,255,255,0.1);">Cerrar Sesión</a>
     </aside>
 
-    <nav class="navbar">
-        <div class="nav-welcome">
+<nav class="navbar">
+        <div class="nav-welcome" style="display: flex; align-items: center;">
             <div class="menu-toggle" id="open-menu">
                 <span></span><span></span><span></span>
             </div>
-            ¡Hola, <strong><?php echo htmlspecialchars($nombre_usuario); ?></strong>!
+            ¡Bienvenido, <strong><?php echo htmlspecialchars($nombre_usuario); ?></strong>!
         </div>
-        
         <div class="nav-logo">
             <img src="Imagenes/uacj-logo.png" alt="Logo UACJ">
         </div>
-        
         <div class="nav-logout">
             <a href="PHP/logout.php" class="logout-link">Cerrar sesión</a>
         </div>
@@ -63,11 +61,11 @@ $nombre_usuario = $_SESSION['usuario'];
             </div>
 
             <div class="projects-grid">
-                <a href="dashboard.php" class="project-item">
+                <a href="/dashboard.php" class="project-item">
                     <div class="icon">🚗</div>
                     <span>SmartParking</span>
                 </a>
-                <a href="https://github.com/" target="_blank" class="project-item">
+                <a href="https://github.com/K4RL3/Estacionamientos-UACJ#" target="_blank" class="project-item">
                     <div class="icon">💻</div>
                     <span>Repositorio</span>
                 </a>
@@ -99,6 +97,21 @@ $nombre_usuario = $_SESSION['usuario'];
 
         btnOpen.addEventListener('click', toggleNav);
         overlay.addEventListener('click', toggleNav);
+    </script>
+
+    <script>
+        const USUARIO_ACTUAL_ID = <?php echo $usuario_id; ?>;
+        console.log("Sesión activa para ID:", USUARIO_ACTUAL_ID);
+    </script>
+
+    <script src="Scripts/script.js"></script>
+
+    <script>
+        window.onload = function() {
+            if (typeof cargarCajones === 'function') {
+                cargarCajones(1); 
+            }
+        };
     </script>
 </body>
 </html>

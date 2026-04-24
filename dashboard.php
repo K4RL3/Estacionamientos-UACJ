@@ -1,7 +1,7 @@
 <?php
 session_start();
 if (!isset($_SESSION['usuario'])) {
-    header("Location: login.html");
+    header("Location: /login.html");
     exit();
 }
 $nombre_usuario = $_SESSION['usuario'];
@@ -76,9 +76,10 @@ $usuario_id = isset($_SESSION['usuario_id']) ? $_SESSION['usuario_id'] : '0';
         <div style="text-align: center; padding: 20px;">
             <img src="Imagenes/uacj-logo.png" alt="UACJ" style="height: 50px;">
         </div>
-        <a href="dashboard.php">Mapa de Cajones</a>
+        <a href="/dashboard.php">Mapa de Cajones</a>
         <a href="confirmacion.php">Mi Reserva Activa</a>
         <a href="ubicacion.php">Geolocalización</a>
+        <a href="ficha.php">lol</a>
         <a href="PHP/logout.php" style="color: #FFD700; margin-top: auto; border-top: 1px solid white;">Cerrar Sesión</a>
     </aside>
 
