@@ -35,7 +35,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $_SESSION['usuario'] = $user_data['nombre']; 
             $_SESSION['usuario_id'] = $user_data['id']; 
             
-            header('Location: dashboard.php');
+            header('Location: /dashboard.php');
             exit();
         } else {
             echo "Contraseña incorrecta. <a href='javascript:history.back()'>Volver</a>";
