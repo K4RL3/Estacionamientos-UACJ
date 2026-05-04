@@ -1,7 +1,7 @@
 <?php
 session_start();
 if (!isset($_SESSION['usuario'])) {
-    header("Location: /login.html");
+    header("Location: login.html");
     exit();
 }
 $nombre_usuario = $_SESSION['usuario'];
@@ -9,12 +9,13 @@ $usuario_id = isset($_SESSION['usuario_id']) ? $_SESSION['usuario_id'] : '0';
 ?>
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SmartParking UACJ - Panel</title>
-    <link rel="stylesheet" href="Styles/dashboard-style.css"> 
-    
+    <link rel="stylesheet" href="Styles/dashboard-style.css">
+
     <style>
         .menu-toggle {
             cursor: pointer;
@@ -24,6 +25,7 @@ $usuario_id = isset($_SESSION['usuario_id']) ? $_SESSION['usuario_id'] : '0';
             margin-right: 15px;
             vertical-align: middle;
         }
+
         .menu-toggle span {
             width: 25px;
             height: 3px;
@@ -31,44 +33,58 @@ $usuario_id = isset($_SESSION['usuario_id']) ? $_SESSION['usuario_id'] : '0';
             border-radius: 2px;
             transition: 0.3s;
         }
+
         .nav-sidebar {
             position: fixed;
             top: 0;
-            left: -280px; /* Escondido */
+            left: -280px;
+            /* Escondido */
             width: 280px;
             height: 100%;
             background-color: #003366;
             z-index: 2000;
             transition: 0.4s ease;
-            box-shadow: 5px 0 15px rgba(0,0,0,0.3);
+            box-shadow: 5px 0 15px rgba(0, 0, 0, 0.3);
             display: flex;
             flex-direction: column;
             padding-top: 20px;
         }
-        .nav-sidebar.open { left: 0; }
+
+        .nav-sidebar.open {
+            left: 0;
+        }
 
         .nav-sidebar a {
             color: white;
             text-decoration: none;
             padding: 15px 25px;
             font-size: 1.1rem;
-            border-bottom: 1px solid rgba(255,255,255,0.1);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
             transition: 0.3s;
         }
+
         .nav-sidebar a:hover {
             background-color: rgba(255, 215, 0, 0.2);
             color: #FFD700;
         }
+
         .overlay-nav {
             position: fixed;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(0,0,0,0.5);
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
             display: none;
             z-index: 1500;
         }
-        .overlay-nav.show { display: block; }
+
+        .overlay-nav.show {
+            display: block;
+        }
     </style>
 </head>
+
 <body>
 
     <div class="overlay-nav" id="nav-overlay"></div>
@@ -76,7 +92,7 @@ $usuario_id = isset($_SESSION['usuario_id']) ? $_SESSION['usuario_id'] : '0';
         <div style="text-align: center; padding: 20px;">
             <img src="Imagenes/uacj-logo.png" alt="UACJ" style="height: 50px;">
         </div>
-        <a href="/dashboard.php">Mapa de Cajones</a>
+        <a href="dashboard.php">Mapa de Cajones</a>
         <a href="confirmacion.php">Mi Reserva Activa</a>
         <a href="ubicacion.php">Geolocalización</a>
         <a href="ficha.php">lol</a>
@@ -99,7 +115,7 @@ $usuario_id = isset($_SESSION['usuario_id']) ? $_SESSION['usuario_id'] : '0';
     </nav>
 
     <main class="dashboard-container">
-        
+
         <aside class="sidebar">
             <h3>Seleccionar Piso</h3>
             <div class="status-bar">
@@ -107,7 +123,7 @@ $usuario_id = isset($_SESSION['usuario_id']) ? $_SESSION['usuario_id'] : '0';
                 <button onclick="cargarCajones(2)" class="btn-nivel">Nivel 2</button>
                 <button onclick="cargarCajones(3)" class="btn-nivel">Nivel 3</button>
             </div>
-            
+
             <div class="legend">
                 <h4>Leyenda</h4>
                 <div class="item"><span class="box libre"></span> Disponible</div>
@@ -153,9 +169,10 @@ $usuario_id = isset($_SESSION['usuario_id']) ? $_SESSION['usuario_id'] : '0';
     <script>
         window.onload = function() {
             if (typeof cargarCajones === 'function') {
-                cargarCajones(1); 
+                cargarCajones(1);
             }
         };
     </script>
 </body>
+
 </html>

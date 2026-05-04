@@ -4,15 +4,15 @@ const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZ
 async function cargarCajones(nivel) {
     try {
         const response = await fetch(`${SUPABASE_URL}/rest/v1/estacionamiento?nivel=eq.${nivel}&select=*&order=nombre_cajon.asc`, {
-            headers: { 
-                'apikey': SUPABASE_KEY, 
-                'Authorization': `Bearer ${SUPABASE_KEY}` 
+            headers: {
+                'apikey': SUPABASE_KEY,
+                'Authorization': `Bearer ${SUPABASE_KEY}`
             }
         });
-        
+
         const datos = await response.json();
         dibujarMapa(datos, nivel);
-        
+
     } catch (error) {
         console.error("Error al cargar cajones:", error);
     }
@@ -21,8 +21,8 @@ async function cargarCajones(nivel) {
 
 function dibujarMapa(datosCajones, nivelActual) {
     const contenedor = document.getElementById('mapa-interactivo');
-    
-    contenedor.innerHTML = ''; 
+
+    contenedor.innerHTML = '';
 
     datosCajones.forEach(cajon => {
         const div = document.createElement('div');
@@ -54,11 +54,11 @@ async function seleccionarLugar(idCajon, nombre, nivel) {
 
         if (reservasExistentes.length > 0) {
             alert("¡Ya tienes un lugar reservado! No puedes elegir más de uno.");
-            return; 
+            return;
         }
 
         const confirmar = confirm(`¿Confirmas la reserva del lugar ${nombre}?`);
-        if(!confirmar) return;
+        if (!confirmar) return;
 
 
         const resReserva = await fetch(`${SUPABASE_URL}/rest/v1/reservas`, {
