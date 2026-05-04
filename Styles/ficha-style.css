@@ -1,100 +1,141 @@
-/* --- CSS BASE (Tu código) --- */
+/* ===== VARIABLES (IMPORTANTE) ===== */
+:root {
+    --white: #ffffff;
+    --uacj-blue: #003366;
+    --uacj-gold: #FFD700;
+    --gray-light: #f5f5f5;
+}
+
+/* ===== BASE ===== */
 body {
     font-family: 'Segoe UI', Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #ffffff; 
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
+    background-color: var(--white);
 }
 
+/* ===== NAVBAR ===== */
 .navbar {
-    background-color: #003366; 
+    background-color: var(--uacj-blue);
     color: white;
-    display: flex; 
-    justify-content: space-between; 
+    display: flex;
+    justify-content: space-between;
     align-items: center;
-    padding: 10px 30px; 
+    padding: 10px 30px;
     height: 60px;
     box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.nav-welcome {
+    font-size: 1rem;
+    width: 30%;
+    display: flex;
+    align-items: center;
+    gap: 15px;
 }
 
 .nav-logo {
     width: 40%;
     text-align: center;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    background: radial-gradient(circle, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0) 70%);
-    padding: 5px 0;
-    border-radius: 50%; 
 }
 
 .nav-logo img {
-    height: 50px;
-    filter: drop-shadow(0px 0px 2px rgba(255, 255, 255, 0.8));
-    transition: transform 0.3s ease;
+    height: 45px;
+    transition: 0.3s;
 }
 
 .nav-logo img:hover {
-    transform: scale(1.05); 
+    transform: scale(1.05);
 }
 
-.nav-welcome { font-size: 1rem; width: 30%; }
-.nav-logo { width: 40%; text-align: center; }
-.nav-logo img { height: 45px; } 
-.nav-logout { width: 30%; text-align: right; }
+.nav-logout {
+    width: 30%;
+    text-align: right;
+}
 
 .logout-link {
-    color: #FFD700; 
-    text-decoration: none; 
+    color: var(--uacj-gold);
+    text-decoration: none;
     font-weight: bold;
-    border: 1px solid #FFD700; 
-    padding: 5px 15px; 
-    border-radius: 20px; 
+    border: 1px solid var(--uacj-gold);
+    padding: 5px 15px;
+    border-radius: 20px;
     transition: 0.3s;
 }
-.logout-link:hover { 
-    background-color: #FFD700; 
-    color: #003366; }
 
-/* --- MENÚ HAMBURGUESA (Lo que faltaba) --- */
+.logout-link:hover {
+    background-color: var(--uacj-gold);
+    color: var(--uacj-blue);
+}
+
+/* ===== MENÚ HAMBURGUESA ===== */
 .menu-toggle {
-    cursor: pointer; 
-    display: flex; 
-    flex-direction: column; 
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
     gap: 4px;
 }
+
 .menu-toggle span {
-    width: 25px; height: 3px; background-color: #FFD700; border-radius: 2px; transition: 0.3s;
+    width: 25px;
+    height: 3px;
+    background-color: var(--uacj-gold);
+    border-radius: 2px;
 }
 
+/* ===== SIDEBAR DESLIZABLE ===== */
 .nav-sidebar {
-    position: fixed; top: 0; left: -280px;
-    width: 280px; height: 100%;
-    background-color: #003366; z-index: 2000;
-    transition: 0.4s ease; box-shadow: 5px 0 15px rgba(0,0,0,0.3);
-    display: flex; flex-direction: column; padding-top: 20px;
+    position: fixed;
+    top: 0;
+    left: -280px;
+    width: 280px;
+    height: 100%;
+    background-color: var(--uacj-blue);
+    z-index: 3000;
+    transition: 0.4s;
+    display: flex;
+    flex-direction: column;
 }
-.nav-sidebar.open { left: 0; }
+
+.nav-sidebar.open {
+    left: 0;
+}
+
 .nav-sidebar a {
-    color: white; text-decoration: none; padding: 15px 25px;
-    border-bottom: 1px solid rgba(255,255,255,0.1); transition: 0.3s;
+    color: white;
+    text-decoration: none;
+    padding: 15px 25px;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
 }
-.nav-sidebar a:hover { background: rgba(255, 215, 0, 0.1); color: #FFD700; }
+
+.nav-sidebar a:hover {
+    background: rgba(255,215,0,0.1);
+    color: var(--uacj-gold);
+}
 
 .overlay-nav {
-    position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-    background: rgba(0,0,0,0.5); display: none; z-index: 1500;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    display: none;
+    z-index: 2500;
 }
-.overlay-nav.show { display: block; }
 
-.sidebar-logo-container { text-align: center; padding: 20px; }
-.sidebar-logo-container img { max-width: 150px; }
+.overlay-nav.show {
+    display: block;
+}
 
-/* FICHA DE PERFIL INTERACTIVA */
+.sidebar-logo-container {
+    text-align: center;
+    padding: 20px;
+}
+
+.sidebar-logo-container img {
+    max-width: 150px;
+}
+
+/* ===== CONTENIDO PRINCIPAL ===== */
 .main-content {
     display: flex;
     justify-content: center;
@@ -102,37 +143,37 @@ body {
     padding: 50px 20px;
 }
 
+/* ===== TARJETA PERFIL ===== */
 .profile-card {
     background: var(--white);
     width: 100%;
-    max-width: 450px;
+    max-width: 420px;
     border-radius: 25px;
     box-shadow: 0 15px 35px rgba(0,0,0,0.1);
     overflow: hidden;
-    position: relative;
     text-align: center;
-    transition: transform 0.4s ease;
+    transition: 0.3s;
 }
 
 .profile-card:hover {
-    transform: translateY(-10px);
+    transform: translateY(-8px);
 }
 
+/* HEADER */
 .card-header {
     background: var(--uacj-blue);
     height: 120px;
-    background-image: radial-gradient(circle at 20% 30%, rgba(255,215,0,0.2) 0%, transparent 50%);
 }
 
+/* AVATAR */
 .avatar-container {
-    width: 130px;
-    height: 130px;
-    margin: -65px auto 15px;
+    width: 120px;
+    height: 120px;
+    margin: -60px auto 10px;
     border-radius: 50%;
     border: 5px solid var(--white);
     overflow: hidden;
     background: #eee;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
 }
 
 .profile-img {
@@ -141,92 +182,155 @@ body {
     object-fit: cover;
 }
 
+/* INFO */
 .profile-info {
-    padding: 0 30px;
+    padding: 0 25px;
 }
 
 .profile-info h2 {
     color: var(--uacj-blue);
-    margin: 10px 0;
 }
 
-.profile-info .title {
-    color: var(--uacj-gold);
-    font-weight: bold;
-    background: #003366;
-    display: inline-block;
-    padding: 4px 15px;
+.title {
+    background: var(--uacj-blue);
+    color: white;
+    padding: 5px 15px;
     border-radius: 20px;
     font-size: 0.85rem;
-    color: white;
+    display: inline-block;
+    margin: 5px 0;
 }
 
 .description {
     color: #666;
     font-size: 0.95rem;
-    line-height: 1.6;
-    margin: 20px 0;
+    margin: 15px 0;
 }
 
-/* PROYECTOS / HUB */
+/* ===== PROYECTOS ===== */
 .projects-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 15px;
+    gap: 10px;
     padding: 20px;
-    background: #f9f9f9;
+    background: var(--gray-light);
 }
 
 .project-item {
     text-decoration: none;
     color: var(--uacj-blue);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 15px 5px;
-    border-radius: 15px;
+    text-align: center;
+    padding: 10px;
+    border-radius: 12px;
     transition: 0.3s;
-    border: 1px solid transparent;
 }
 
 .project-item:hover {
-    background: var(--white);
-    border-color: var(--uacj-gold);
-    box-shadow: 0 5px 10px rgba(0,0,0,0.05);
+    background: white;
+    border: 1px solid var(--uacj-gold);
 }
 
-.project-item .icon {
-    font-size: 1.5rem;
-    margin-bottom: 8px;
-}
-
-.project-item span {
-    font-size: 0.75rem;
-    font-weight: bold;
-}
 
 .btn-contact {
-    margin: 20px 0 30px;
-    background: var(--uacj-blue);
-    color: white;
+    background-color: #FFD700;
+    color: #003366;
     border: none;
-    padding: 12px 30px;
-    border-radius: 30px;
+    padding: 12px 25px;
+    border-radius: 25px;
     font-weight: bold;
     cursor: pointer;
     transition: 0.3s;
+    box-shadow: 0 4px 15px rgba(255, 215, 0, 0.3);
 }
 
 .btn-contact:hover {
-    background: var(--uacj-gold);
-    color: var(--uacj-blue);
+    background-color: #e6c200;
     transform: scale(1.05);
 }
 
+/* =========================================
+   ESTILOS DEL FORMULARIO ESCONDIDO
+   ========================================= */
+.form-contacto-escondido {
+    width: 0;
+    opacity: 0;
+    overflow: hidden;
+    background: white;
+    padding: 0;
+    border-radius: 20px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    transition: all 0.6s ease;
+    transform: translateX(-100px); /* Escondido "atrás" de la ficha */
+    z-index: 1;
+}
+
+/* CLASE ACTIVA: Cuando el JS añade .active al contenedor */
+.container-revelacion.active .form-contacto-escondido {
+    width: 350px;
+    padding: 30px;
+    opacity: 1;
+    transform: translateX(0);
+    margin-left: 20px; /* Separación de la ficha */
+}
+.container-revelacion {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    transition: all 0.6s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+}
+
+/* Formulario interno */
+#contact-form h3 { 
+    color: #003366; 
+    margin-bottom: 20px; 
+    font-size: 1.4rem;
+}
+
+#contact-form input, 
+#contact-form textarea {
+    width: 90%; 
+    margin-bottom: 15px; 
+    padding: 12px;
+    border: 1px solid #ddd; 
+    border-radius: 10px;
+    font-family: inherit;
+}
+
+.btn-enviar {
+    background: #003366; 
+    color: white; 
+    border: none;
+    padding: 12px; 
+    border-radius: 10px; 
+    width: 100%; 
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.3s;
+    border: 10px;
+}
+
+.btn-enviar:hover {
+    background: #0055a4;
+}
+.social-links{
+    margin: 10px;
+}
+
+/* ===== FOOTER ===== */
 .creadora-footer {
     text-align: center;
-    padding: 20px;
+    padding: 15px;
     font-size: 0.8rem;
     color: var(--uacj-blue);
-    opacity: 0.8;
+}
+/* Responsividad básica */
+@media (max-width: 768px) {
+    .container-revelacion.active {
+        flex-direction: column;
+        gap: 20px;
+    }
+    .container-revelacion.active .form-contacto-escondido {
+        margin-left: 0;
+        transform: translateY(0);
+    }
 }
