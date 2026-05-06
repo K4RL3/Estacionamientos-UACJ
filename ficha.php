@@ -5,6 +5,8 @@ if (!isset($_SESSION['usuario'])) {
     exit();
 }
 $nombre_usuario = $_SESSION['usuario'];
+$titulo_pagina = "Mi Reserva";
+include 'PHP/navbar.php';
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -18,34 +20,6 @@ $nombre_usuario = $_SESSION['usuario'];
 </head>
 
 <body>
-
-    <div class="overlay-nav" id="nav-overlay"></div>
-    <aside class="nav-sidebar" id="nav-sidebar">
-        <div class="sidebar-logo-container">
-            <img src="Imagenes/uacj-logo.png" alt="UACJ">
-        </div>
-        <a href="/dashboard.php">Mapa de Cajones</a>
-        <a href="confirmacion.php">Mi Reserva Activa</a>
-        <a href="ubicacion.php">Geolocalización</a>
-        <a href="ficha.php">lol</a>
-        <a href="PHP/logout.php" style="color: #FFD700; margin-top: auto; border-top: 1px solid rgba(255,255,255,0.1);">Cerrar Sesión</a>
-    </aside>
-
-    <nav class="navbar">
-        <div class="nav-welcome" style="display: flex; align-items: center;">
-            <div class="menu-toggle" id="open-menu">
-                <span></span><span></span><span></span>
-            </div>
-            ¡Bienvenido, <strong><?php echo htmlspecialchars($nombre_usuario); ?></strong>!
-        </div>
-        <div class="nav-logo">
-            <img src="Imagenes/uacj-logo.png" alt="Logo UACJ">
-        </div>
-        <div class="nav-logout">
-            <a href="PHP/logout.php" class="logout-link">Cerrar sesión</a>
-        </div>
-    </nav>
-
     <div class="main-content">
         <div class="container-revelacion" id="wrapper">
 
