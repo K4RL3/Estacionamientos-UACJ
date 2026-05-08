@@ -1,0 +1,1 @@
+INSERT INTO "public"."reservas" ("id", "usuario_id", "cajon_id", "fecha_reserva", "fecha_liberacion") VALUES (8, 1, 127, '2026-05-08 15:22:34.138+00', null);

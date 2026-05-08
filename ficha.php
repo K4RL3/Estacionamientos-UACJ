@@ -27,7 +27,7 @@ include 'PHP/navbar.php';
             <div class="panel-qr-escondido" id="panel-qr">
                 <h3>Mi Acceso Digital en QR</h3>
                 <div class="qr-container">
-                    <img src="Imagenes/Repositorio.jpg" alt="QR Personal" class="img-qr">
+                    <img src="Imagenes/Repositorio.png" alt="QR Personal" class="img-qr">
                     <p>Escanea para ver el repositorio</p>
                 </div>
                 <button type="button" id="btn-cerrar-qr" class="btn-cancelar-minimal">✕ Cerrar</button>
