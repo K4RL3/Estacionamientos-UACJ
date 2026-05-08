@@ -23,7 +23,7 @@ body {
     align-items: center;
     padding: 10px 30px;
     height: 60px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
 }
 
 .nav-welcome {
@@ -105,11 +105,11 @@ body {
     color: white;
     text-decoration: none;
     padding: 15px 25px;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    border-bottom: 1px solid rgba(255,255,255,0.1);
 }
 
 .nav-sidebar a:hover {
-    background: rgba(255, 215, 0, 0.1);
+    background: rgba(255,215,0,0.1);
     color: var(--uacj-gold);
 }
 
@@ -117,7 +117,7 @@ body {
     position: fixed;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.5);
+    background: rgba(0,0,0,0.5);
     display: none;
     z-index: 2500;
 }
@@ -149,7 +149,7 @@ body {
     width: 100%;
     max-width: 420px;
     border-radius: 25px;
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.1);
     overflow: hidden;
     text-align: center;
     transition: 0.3s;
@@ -260,8 +260,7 @@ body {
     border-radius: 20px;
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
     transition: all 0.6s ease;
-    transform: translateX(-100px);
-    /* Escondido "atrás" de la ficha */
+    transform: translateX(-100px); /* Escondido "atrás" de la ficha */
     z-index: 1;
 }
 
@@ -271,10 +270,8 @@ body {
     padding: 30px;
     opacity: 1;
     transform: translateX(0);
-    margin-left: 20px;
-    /* Separación de la ficha */
+    margin-left: 20px; /* Separación de la ficha */
 }
-
 .container-revelacion {
     display: flex;
     align-items: center;
@@ -283,29 +280,29 @@ body {
 }
 
 /* Formulario interno */
-#contact-form h3 {
-    color: #003366;
-    margin-bottom: 20px;
+#contact-form h3 { 
+    color: #003366; 
+    margin-bottom: 20px; 
     font-size: 1.4rem;
 }
 
-#contact-form input,
+#contact-form input, 
 #contact-form textarea {
-    width: 90%;
-    margin-bottom: 15px;
+    width: 90%; 
+    margin-bottom: 15px; 
     padding: 12px;
-    border: 1px solid #ddd;
+    border: 1px solid #ddd; 
     border-radius: 10px;
     font-family: inherit;
 }
 
 .btn-enviar {
-    background: #003366;
-    color: white;
+    background: #003366; 
+    color: white; 
     border: none;
-    padding: 12px;
-    border-radius: 10px;
-    width: 100%;
+    padding: 12px; 
+    border-radius: 10px; 
+    width: 100%; 
     cursor: pointer;
     font-weight: bold;
     transition: 0.3s;
@@ -315,8 +312,7 @@ body {
 .btn-enviar:hover {
     background: #0055a4;
 }
-
-.social-links {
+.social-links{
     margin: 10px;
 }
 
@@ -327,6 +323,166 @@ body {
     font-size: 0.8rem;
     color: var(--uacj-blue);
 }
+/* Contenedor de iconos de redes sociales */
+.social-icons-grid {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin: 20px 0;
+}
+
+/* Contenedor de iconos de redes sociales */
+.social-icons-grid {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin: 20px 0;
+}
+
+.social-icon-item {
+    width: 45px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: #f0f2f5;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+}
+
+.social-icon-item img {
+    width: 100%;
+    height: auto;
+    filter: grayscale(100%); /* Efecto elegante en gris */
+    opacity: 0.7;
+}
+
+.social-icon-item:hover {
+    background: #004a99; /* Color institucional UACJ o el de tu preferencia */
+    transform: translateY(-3px);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
+
+.social-icon-item:hover img {
+    filter: grayscale(0%);
+    opacity: 1;
+    invert(1); /* Si los iconos son oscuros y el fondo azul, esto los pone blancos */
+}
+
+/* ===== CORRECCIÓN DE ICONOS SOCIALES Y QR ===== */
+.social-icon-item {
+    width: 45px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: #f0f2f5;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+    padding: 0; /* Quitamos padding para controlar mejor la imagen */
+    overflow: hidden;
+}
+
+.social-icon-item img {
+    width: 24px;   /* Tamaño fijo para TODOS los iconos */
+    height: 24px;  /* Tamaño fijo para TODOS los iconos */
+    object-fit: contain; /* Mantiene la proporción sin deformar */
+    filter: grayscale(100%);
+    opacity: 0.7;
+    transition: 0.3s;
+}
+
+/* Hover específico para que el icono se ponga blanco */
+.social-icon-item:hover img {
+    filter: grayscale(0%) brightness(0) invert(1);
+    opacity: 1;
+}
+
+/* Colores de marca al pasar el mouse */
+.social-icon-item.fb:hover { background: #1877F2; }
+.social-icon-item.ig:hover { background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%,#d6249f 60%,#285AEB 90%); }
+.btn-qr:hover { background: #ff9800; }
+/* ===== CORRECCIÓN DE ICONOS SOCIALES Y QR ===== */
+.social-icon-item {
+    width: 45px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: #f0f2f5;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+    padding: 0; /* Quitamos padding para controlar mejor la imagen */
+    overflow: hidden;
+}
+
+.social-icon-item img {
+    width: 24px;   /* Tamaño fijo para TODOS los iconos */
+    height: 24px;  /* Tamaño fijo para TODOS los iconos */
+    object-fit: contain; /* Mantiene la proporción sin deformar */
+    filter: grayscale(100%);
+    opacity: 0.7;
+    transition: 0.3s;
+}
+
+/* Hover específico para que el icono se ponga blanco */
+.social-icon-item:hover img {
+    filter: grayscale(0%) brightness(0) invert(1);
+    opacity: 1;
+}
+
+/* Colores de marca al pasar el mouse */
+.social-icon-item.fb:hover { background: #1877F2; }
+.social-icon-item.ig:hover { background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%,#d6249f 60%,#285AEB 90%); }
+.btn-qr:hover { background: #ff9800; }
+
+/* ===== PANEL QR IZQUIERDO (REVELACIÓN) ===== */
+.panel-qr-escondido {
+    width: 0;
+    opacity: 0;
+    overflow: hidden;
+    background: white;
+    padding: 0;
+    border-radius: 20px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    transition: all 0.6s ease;
+    transform: translateX(100px); /* Viene desde "atrás" hacia la izquierda */
+    z-index: 1;
+    text-align: center;
+}
+
+/* Estado Activo para el QR */
+.container-revelacion.active-qr .panel-qr-escondido {
+    width: 280px;
+    padding: 25px;
+    opacity: 1;
+    transform: translateX(0);
+    margin-right: 20px; /* Espacio con la ficha */
+}
+
+/* Ajuste de la imagen del QR dentro del panel */
+.img-qr {
+    width: 100%;
+    max-width: 180px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+.btn-cancelar-minimal {
+    background: none;
+    border: none;
+    color: #888;
+    cursor: pointer;
+    font-size: 0.8rem;
+    margin-top: 10px;
+}
 
 /* Responsividad básica */
 @media (max-width: 768px) {
@@ -334,7 +490,6 @@ body {
         flex-direction: column;
         gap: 20px;
     }
-
     .container-revelacion.active .form-contacto-escondido {
         margin-left: 0;
         transform: translateY(0);

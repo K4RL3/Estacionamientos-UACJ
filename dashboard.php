@@ -6,7 +6,7 @@ if (!isset($_SESSION['usuario'])) {
 }
 $nombre_usuario = $_SESSION['usuario'];
 $usuario_id = isset($_SESSION['usuario_id']) ? $_SESSION['usuario_id'] : '0';
-$titulo_pagina = "Cajones";
+$titulo_pagina = "Mapa de Cajones";
 include 'PHP/navbar.php';
 ?>
 <!DOCTYPE html>
