@@ -1,14 +1,13 @@
 <?php
 session_start();
-if (!isset($_SESSION['usuario'])) {
-    header("Location: /login.html");
+if (!isset($_SESSION['usuario_id'])) {
+    header("Location: PHP/login.php");
     exit();
 }
-// Asegúrate de definir $usuario_id si lo usas abajo, 
-// si no, lo inicializamos para evitar errores de PHP
-$usuario_id = $_SESSION['usuario_id'] ?? 0; 
-$nombre_usuario = $_SESSION['usuario'];
-$titulo_pagina = "Perfil de Creadora";
+// Mantenemos consistencia con las variables de tus otros archivos
+$cajon = isset($_GET['cajon']) ? $_GET['cajon'] : '---';
+$nombre_usuario = isset($_SESSION['usuario']) ? $_SESSION['usuario'] : 'Usuario';
+$titulo_pagina = "Ficha de Creadora";
 include 'PHP/navbar.php';
 ?>
 <!DOCTYPE html>

@@ -54,7 +54,9 @@ include 'PHP/navbar.php';
 
         <div id="caption" class="lightbox-caption"></div>
     </div>
-    <div class="mini-footer">Sistema SmartParking UACJ 2024</div>
+        <footer class="creadora-footer">
+        Programación Integral - Universidad Autónoma de Ciudad Juárez
+    </footer>
     <script>
         const btnOpen = document.getElementById('open-menu');
         const sideNav = document.getElementById('nav-sidebar');

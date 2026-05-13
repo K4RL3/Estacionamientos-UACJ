@@ -22,6 +22,8 @@ $usuario_id = isset($_SESSION['usuario_id']) ? $_SESSION['usuario_id'] : '0';
         <a href="confirmacion.php">Mi Reserva Activa</a>
         <a href="ubicacion.php">Geolocalización</a>
         <a href="ficha.php">Ficha de Creadora</a>
+        <a href="sitemap.php">Site Map</a>
+
         <a href="PHP/logout.php" style="color: #FFD700; margin-top: auto; border-top: 1px solid white;">Cerrar Sesión</a>
     </aside>
 

@@ -62,8 +62,8 @@ include 'PHP/navbar.php';
     </main>
 </div>
 
-    <footer class="main-footer">
-        Este es un trabajo para la clase de Programación Integral - UACJ 2024
+    <footer class="creadora-footer">
+        Programación Integral - Universidad Autónoma de Ciudad Juárez
     </footer>
 
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>

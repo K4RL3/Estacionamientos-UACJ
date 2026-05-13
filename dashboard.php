@@ -17,6 +17,8 @@ include 'PHP/navbar.php';
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SmartParking UACJ - Panel</title>
     <link rel="stylesheet" href="Styles/dashboard-style.css">
+    <link rel="stylesheet" href="Styles/navbar-style.css">
+        
 </head>
 
 <body>
@@ -31,7 +33,7 @@ include 'PHP/navbar.php';
             </div>
 
             <div class="legend">
-                <h4>Leyenda</h4>
+                <h4>Disponibilidad</h4>
                 <div class="item"><span class="box libre"></span> Disponible</div>
                 <div class="item"><span class="box ocupado"></span> Ocupado</div>
                 <div class="item"><span class="box pasillo-ref"></span> Pasillo</div>
@@ -43,12 +45,11 @@ include 'PHP/navbar.php';
             <div class="map-wrapper">
                 <div id="mapa-interactivo" class="parking-grid"></div>
             </div>
-            <p id="stats">Cargando datos del servidor...</p>
         </section>
     </main>
 
-    <footer class="main-footer">
-        Este es un trabajo para la clase de Programación Integral - UACJ 2024
+    <footer class="creadora-footer">
+        Programación Integral - Universidad Autónoma de Ciudad Juárez
     </footer>
 
     <script>
